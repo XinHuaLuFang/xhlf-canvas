@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>平移变换1</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.fillStyle = '#00AAAA';
+    context.fillRect(100, 100, 200, 100);
+
+    context.fillStyle = '#FF0000';
+    context.translate(100, 100);
+    context.fillRect(100, 100, 200, 100);
+
+    context.fillStyle = '#FF00FF';
+    context.translate(200, 200);
+    context.fillRect(100, 100, 200, 100);
+  };
+</script>
+</body>
+</html>
+用数学方法调整所绘制形状的物理属性，其实质是坐标变形。<br>
+<br>
+1. 平移变换：translate(x, y)<br>
+2. 旋转变换: rotate(deg)<br>
+3. 缩放变换: scale(sx, sy)<br>

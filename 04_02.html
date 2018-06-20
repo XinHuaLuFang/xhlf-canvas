@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>填充颜色2-渐变色-线性渐变</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.rect(200,100,400,400);
+
+    //添加渐变线
+    // let grd = context.createLinearGradient(200,300,600,300);
+    // let grd = context.createLinearGradient(200, 100, 600, 500);
+    let grd = context.createLinearGradient(200, 300, 600, 500);
+
+    //添加颜色断点
+    grd.addColorStop(0, 'black');
+    grd.addColorStop(0.5, 'white');
+    grd.addColorStop(1, 'black');
+
+    //应用渐变
+    context.fillStyle = grd;
+
+    context.fill();
+  };
+</script>
+</body>
+</html>
+填充渐变色<br>
+1. 线性渐变 - 创建一个水平、垂直或者对角线的图案，基于两个端点定义；<br>
+2. 径向渐变 - 自中心点创建一个放射状填充，基于两个圆定义；<br>
+<br>
+步骤<br>
+1. 添加渐变线；<br>
+&nbsp;&nbsp;let grd = context.createLinearGradient(xstart, ystart, xend, yend);<br>
+&nbsp;&nbsp;let grd = context.createRadialGradient(x0, y0, r0, x1, y1, r1);<br>
+2. 为渐变线添加关键色；grd.addColorStop(stop, color);<br>
+3. 应用渐变；context.fillStyle = grd; context.strokeStyle = grd;<br>

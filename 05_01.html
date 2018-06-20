@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>填充纹理</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    let img = new Image(); // 创建Image对象
+    img.src = "lu.jpg"; // 为Image指定图片源
+    img.onload = function () {
+      let pattern = context.createPattern(img, 'repeat');
+      context.fillStyle = pattern;
+      context.fillRect(0, 0, 800, 600);
+    }
+  };
+</script>
+</body>
+</html>
+填充图案方法: createPattern(img, repeat-style);<br>
+img: Image对象实例 | canvas对象 | video对象<br>
+repeat-style: repeat | repeat-x | repeat-y | no-repeat<br>
+<br>
+这里使用了Image的onload事件，它的作用是对图片进行预加载处理，即在图片加载完成后才立即执行其后function的代码体。这个是必须的，如果不写的话，画布将会显示黑屏。因为没有等待图片加载完成就填充纹理，导致浏览器找不到图片。

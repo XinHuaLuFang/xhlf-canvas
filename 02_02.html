@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>填充矩形</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.moveTo(150,50);
+    context.lineTo(650,50);
+    context.lineTo(650,550);
+    context.lineTo(150,550);
+    context.closePath();
+
+    context.fillStyle = 'yellow';
+    context.lineWidth = 5;
+    context.strokeStyle = 'black';
+
+    context.fill();
+    context.stroke();
+  };
+</script>
+</body>
+</html>
+因为Canvas是基于状态的绘制，只有调用了stroke()和fill()才确定绘制。所以我们要把这两行代码放在最后，其余的状态设置的代码放在它们之前。

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>绘制三条折线</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.moveTo(100, 100);
+    context.lineTo(400, 300);
+    context.lineTo(100, 500);
+    context.lineWidth = 5;
+    context.strokeStyle = 'red';
+    context.stroke();
+
+    context.beginPath()
+    context.moveTo(200, 100);
+    context.lineTo(500, 300);
+    context.lineTo(200, 500);
+    context.lineWidth = 5;
+    context.strokeStyle = 'blue';
+    context.stroke();
+
+    context.beginPath()
+    context.moveTo(300, 100);
+    context.lineTo(600, 300);
+    context.lineTo(300, 500);
+    context.lineWidth = 5;
+    context.strokeStyle = 'black';
+    context.stroke();
+  };
+</script>
+</body>
+</html>
+绘制多条折线坑；（Canvas是基于状态的绘制，添加context.beginPath()设置绘制状态的起点）

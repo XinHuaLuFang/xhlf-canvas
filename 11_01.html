@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>旋转变换1</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.save();
+    context.translate(100, 100);
+    context.fillStyle = '#FF0000';
+    context.fillRect(0, 0, 100, 100);
+    context.restore();
+
+    context.save();
+    context.translate(100, 100);
+    context.rotate(30 * Math.PI / 180);
+    context.fillStyle = '#00FF00';
+    context.fillRect(0, 0, 100, 100);
+    context.restore();
+
+    context.save();
+    context.translate(300, 300);
+    context.fillStyle = '#FF0000';
+    context.fillRect(0, 0, 150, 150);
+    context.restore();
+
+    context.save();
+    context.translate(300, 300);
+    context.rotate(30 * Math.PI / 180);
+    context.fillStyle = '#00FF00';
+    context.fillRect(0, 0, 150, 150);
+    context.restore();
+  };
+</script>
+</body>
+</html>
+rotate(deg) 弧度，不是角度<br>
+旋转是以坐标系原点(0, 0)为圆心进行的顺时针旋转；<br>
+旋转通常搭配平移变换使用，通过平移确定旋转的圆心；<br>

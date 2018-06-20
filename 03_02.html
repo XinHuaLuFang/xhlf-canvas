@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>线条属性2-lineJoin</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function(){
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.lineWidth = 50;
+    context.strokeStyle = '#1BAAAA';
+
+    context.beginPath();
+    context.moveTo(100,100);
+    context.lineTo(300,300);
+    context.lineTo(100, 500);
+    context.lineJoin = 'miter';
+    context.lineWidth = 20;
+    context.strokeStyle = 'red';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(300, 100);
+    context.lineTo(500, 300);
+    context.lineTo(300, 500);
+    context.lineJoin = 'bevel';
+    context.lineWidth = 20;
+    context.strokeStyle = 'blue';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(500, 100);
+    context.lineTo(700, 300);
+    context.lineTo(500, 500);
+    context.lineJoin = 'round';
+    context.lineWidth = 20;
+    context.strokeStyle = 'black';
+    context.stroke();
+  }
+</script>
+</body>
+</html>

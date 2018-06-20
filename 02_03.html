@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>封装绘制方法</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    drawRect(context, 150, 50, 50, 50, 'red', 5, 'blue');
+    drawRect(context, 250, 50, 50, 50, 'green', 5, 'red');
+    drawRect(context, 350, 50, 50, 50, 'yellow', 5, 'black');
+  };
+  function drawRect (ctx, x, y, width, height, fillColor, borderWidth, borderColor) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + width, y);
+    ctx.lineTo(x + width, y + height);
+    ctx.lineTo(x, y + height);
+    ctx.closePath();
+    // ctx.rect(x, y, width, height);
+
+    ctx.fillStyle = fillColor;
+    ctx.lineWidth = borderWidth;
+    ctx.lineStyle = borderColor;
+
+    ctx.fill();
+    ctx.stroke();
+  }
+</script>
+</body>
+</html>
+<!--因为Canvas是基于状态的绘制，只有调用了stroke()和fill()才确定绘制。所以我们要把这两行代码放在最后，其余的状态设置的代码放在它们之前。-->

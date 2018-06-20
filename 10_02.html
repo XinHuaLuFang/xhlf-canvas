@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>平移变换2</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.fillStyle = '#00AAAA';
+    context.fillRect(100, 100, 200, 100);
+
+    context.save();
+    context.fillStyle = '#FF0000';
+    context.translate(100, 100);
+    context.fillRect(100, 100, 200, 100);
+    context.restore();
+
+    // context.translate(-100, -100);
+
+    context.save();
+    context.fillStyle = '#00FF00';
+    context.translate(200, 200);
+    context.fillRect(100, 100, 200, 100);
+    context.restore();
+  };
+</script>
+</body>
+</html>
+context.save() context.restore()<br>
+保存及恢复当前Canvas绘图环境的所有属性

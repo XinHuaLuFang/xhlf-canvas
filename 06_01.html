@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>绘制线条</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+    context.moveTo(100, 100); // 移动画笔
+    context.lineTo(400, 300);
+    context.lineWidth = 5;
+    context.strokeStyle = 'red';
+    context.stroke();
+  };
+</script>
+</body>
+</html>

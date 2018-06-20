@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>填充颜色1-基本色</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.rect(10, 10, 40, 40);
+    context.fillStyle = 'red'; // 使用颜色字符串填充
+    context.fill();
+
+    context.beginPath();
+    context.rect(60, 10, 40, 40);
+    context.fillStyle = '#FF0000'; // 使用十六进制数字字符串填充
+    context.fill();
+
+    context.beginPath();
+    context.rect(110, 10, 40, 40);
+    context.fillStyle = '#F00'; // 使用十六进制字符串简写填充
+    context.fill();
+
+    context.beginPath();
+    context.rect(160, 10, 40, 40);
+    context.fillStyle= 'rgb(255, 0, 0)'; // 使用 rgb() 方法设置颜色
+    context.fill();
+
+    context.beginPath();
+    context.rect(210, 10, 40, 40);
+    context.fillStyle = 'rgba(255, 0, 0, 0.3)'; // 使用 rgba()
+    context.fill();
+
+    context.beginPath();
+    context.rect(260, 10, 40, 40);
+    context.fillStyle = 'hsl(0, 100%, 50%)'; // 使用hsl
+    context.fill();
+
+    context.beginPath();
+    context.rect(310, 10, 40, 40);
+    context.fillStyle = 'hsla(0, 100%, 50%, 0.3)'; // 使用hsla
+    context.fill();
+  };
+</script>
+</body>
+</html>
+填充颜色分两种
+1. 基本色
+2. 渐变色

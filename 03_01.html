@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>线条属性1-lineCap</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function(){
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.lineWidth = 50;
+    context.strokeStyle = '#1BAAAA';
+
+    context.beginPath();
+    context.moveTo(100,100);
+    context.lineTo(700,100);
+    context.lineCap = 'butt';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100,200);
+    context.lineTo(700,200);
+    context.lineCap = 'round';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100,300);
+    context.lineTo(700,300);
+    context.lineCap = 'square';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 400);
+    context.lineTo(250, 550);
+    context.lineTo(400, 400);
+    context.lineTo(550, 550);
+    context.lineTo(700, 400);
+    context.lineCap = 'round';
+    context.stroke();
+
+    //下面画两个基准线方便观察
+    context.lineWidth = 3;
+    context.strokeStyle = 'black';
+
+    context.beginPath();
+    context.moveTo(100,0);
+    context.lineTo(100,600);
+    context.moveTo(700,0);
+    context.lineTo(700,600);
+    context.stroke();
+  }
+</script>
+</body>
+</html>
+线条属性：<br>
+&nbsp;&nbsp;1. lineCap<br>
+&nbsp;&nbsp;2. lineJoin<br>
+&nbsp;&nbsp;3. lineWidth<br>
+&nbsp;&nbsp;4. strokeStyle<br>
+<br>
+<br>lineCap只在线条的端点处起作用，哪怕是折点很多的折线，也仅仅是在开始和终止的两个端点带lineCap。
+<br>
+<br>如果想改变线条折点(两个线段的连接处)的样式，那就要用到lineJoin属性。

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>缩放变换</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<canvas id="canvas">你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+<script>
+  window.onload = function() {
+    let canvas = document.getElementById('canvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    let context = canvas.getContext('2d');
+
+    context.strokeStyle = 'red';
+    context.lineWidth = 5;
+    for (let i = 1; i < 4; i++) {
+      context.save();
+      context.scale(i, i);
+      context.strokeRect(100, 100, 100, 100);
+      context.restore();
+    }
+  };
+</script>
+</body>
+</html>
+1. 缩放时，图像左上角坐标位置也会对应缩放；<br>
+2. 缩放时，图像线条的粗细也会对应缩放；<br>
+平移变换、旋转变换、缩放变换都属于坐标变换。因此，缩放并非缩放的是图像，而是整个坐标系，所以坐标和线条都会进行缩放。
